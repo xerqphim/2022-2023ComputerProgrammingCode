@@ -1,0 +1,41 @@
+import random
+
+flipTrials = 0
+flipTrialsTotal = 0
+i = 1
+coinHeads = 0
+coinTails = 0
+hhh = 0
+
+trackList = []
+
+##################################
+while i <=1000:
+
+    while True:
+        coinFlip = [1, 2]
+
+        coinFace = random.choice(coinFlip)
+
+        if coinFace == 1:
+            coinHeads += 1
+            trackList.append("Heads")
+        else:
+            coinTails += 1
+            trackList.append("Tails")
+    
+        if len(trackList) > 3:
+            del trackList[0]
+
+        flipTrials += 1
+        flipTrialsTotal +=1
+        i += 1
+        if trackList == ["Heads", "Heads", "Heads"]:
+            hhh += 1
+            flipTrials = 0
+            break
+    average = flipTrialsTotal/hhh
+print("I flipped a coin", flipTrialsTotal, "to see how many times I get to coin 3 heads in a row.")
+print("     - I flipped heads a total of", coinHeads, "times.")
+print("     - I flipped tails a total of", coinTails, "times.")
+print("     - On average, it takes about", average, "flips to get 3 heads in a row.")
