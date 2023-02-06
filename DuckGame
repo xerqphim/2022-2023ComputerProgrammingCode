@@ -1,0 +1,542 @@
+#TITLE: THE DUCK GAME
+
+#SETTINGS: The duck goes out to the PARK to enjoy some time and relax. At the PARK, there is a PLAYGROUND that has a SWING, SANDBOX, and TREE. But another location seems to catch the duck's eye. The LEMONADE STAND.
+
+#SUMMARY: The duck wants some grapes but he has no supermarket that is near.. He soon goes to the park to have a nice relaxing time but something about the lemonade stand seems off.. Play and find out.
+
+#LISTS OF VARIABLES:
+    #haveDrank: If you drank the lemonade at the lemonade stand
+    #haveSwung: if you have swung on the swing at the playground that kicks you to another day
+    #haveHammer: If you have acquired the hammer to destroy the lemonade stand
+    #haveMoney: If you have money to pay for the lemonade
+    #day: the amount of days you have completed
+    #visitLemon: how many times you visited the lemonade stand
+
+
+########
+#import modules
+#######
+import time
+import os
+import calendar
+import sys
+########
+#define functions
+#######
+
+def slowType(text):
+    for char in text:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.075)
+
+def sameLine(string):
+        sys.stdout.write(string)
+        sys.stdout.flush()
+
+def start():
+    global day
+    os.system('clear')
+    day = day + 1
+    if day >= 2:
+        print("Another day, another slay,")
+    print("The yellow duck got ready to go to the park to spend his time productivly. Maybe he wants some grapes!")
+    print('''                                      ___
+                                   ,-""   `.
+                                 ,'  _   e )`-._
+                                /  ,' `-._<.===-'
+                               /  /
+                              /  ;
+                  _.--.__    /   ;
+     (`._    _.-""       "--'    |
+     <_  `-""                     \
+      <`-                          :
+       (__   <__.                  ;
+         `-.   '-.__.      _.'    /
+            \      `-.__,-'    _,'
+             `._    ,    /__,-'
+                ""._\__,'< <____
+                     | |  `----.`.
+                     | |        \ `.
+                     ; |___      \-``
+                     \   --<
+                      `.`.<
+                        `-''')
+    time.sleep(5.5)
+    input("Press ENTER to start ᕙ(`▿´)ᕗ")
+    park()
+
+def park():
+    os.system('clear')
+    print("You walked to the park but noticed a lemonade stand.")
+    print('''\n ▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▓▓▒▒▓▓▒▒▓▓▓▓▓▓▓▓▓▓▓▓▒▒▓▓▓▓▒▒▓▓
+  ▓▓▓▓▓▓▓▓▒▒▓▓▓▓▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒░░▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+  ▓▓▓▓▓▓▓▓▒▒░░▓▓░░▓▓▒▒▒▒▒▒▒▒░░░░░░▒▒▒▒░░▒▒▒▒▓▓▒▒▓▓▒▒
+  ▓▓▓▓▓▓▓▓▒▒▓▓▓▓▓▓▓▓▓▓▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒░░▓▓▓▓▓▓▓▓▓▓
+  ▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒
+    ▒▒▓▓░░░░                          ░░░░░░▒▒▓▓▓▓  
+    ▒▒▓▓░░▒▒▒▒▓▓▒▒▒▒▒▒▒▒░░░░▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒  ▓▓▓▓  
+    ▓▓██  ░░░░▓▓  ░░▒▒░░░░▒▒  ▓▓░░▒▒░░    ▒▒  ▓▓▓▓  
+    ▓▓██            ▒▒        ▒▒              ▓▓▓▓  
+    ▓▓██                                      ▓▓▓▓  
+    ▓▓██                                      ▓▓▓▓  
+    ▓▓██                                      ▓▓▓▓  
+    ▓▓██                                      ▓▓▓▓  
+    ▓▓██                                      ▓▓▓▓  
+    ▓▓██                                      ▓▓▓▓  
+  ▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▓▓▒▒
+  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+  ▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▓▓▓▓
+  ▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▓▓▓▓
+  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒
+  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒
+  ▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒''')
+    time.sleep(3)
+    if day == 4:
+        move = input("Press ENTER to go to the lemonade stand")
+        lemonadeStand()
+    else:
+        move = input("\nBut where would the duck rather do? Say one of these choices:\n\t> playground\n\t> lemonade stand\n")
+        if move.lower() == "playground":
+            playGround()
+        elif move.lower() == "lemonade stand":
+            lemonadeStand()
+        else:
+            #TODO: what should happen if they type something else?
+            print("What? Eh, lets just stay here and enjoy the park for a little more :)")
+            time.sleep(2)
+            park()
+
+
+def playGround():
+    os.system('clear')
+    print("The duck decides to go to the playground !")
+    print('''\n──▒▒▒▒▒▒▒▒───▒▒▒▒▒▒▒▒
+─▒▐▒▐▒▒▒▒▌▒─▒▒▌▒▒▐▒▒▌▒
+──▒▀▄█▒▄▀▒───▒▀▄▒▌▄▀▒
+─────██─────────██
+░░░▄▄██▄░░░░░░░▄██▄░░░
+''')
+    time.sleep(2)
+    move = input("\nThere's some fun things to do here. Where does the duck want to go? \n\t> swing\n\t> sandbox\n\t> tree.\n")
+    if move.lower() == "swing":
+        swing()
+    elif move.lower() == "sandbox":
+        sandbox()
+    elif move.lower() == "tree" or "tree.":
+        tree()
+    else:
+        #TODO: what should happen if they type something else?
+        print("What? Eh, lets just stay here and enjoy the playground for a little :)")
+        time.sleep(2)
+        playGround()
+
+def swing():
+    global haveSwung
+    os.system('clear')
+    print("The duck approaches the swing.")
+    time.sleep(2)
+    if not haveSwung:
+        goSwing = input("\nWould you like to go swing? He really isn't the best swinger...\n\t> yes\n\t> no\n")
+        if goSwing == "yes":
+            print("\nHe takes a few swings-")
+            time.sleep(2)
+            print("\n...")
+            time.sleep(2)
+            print("\nThe swing is getting a little TOO fast")
+            time.sleep(2)
+            print("\n...")
+            time.sleep(2)
+            print("\nIT'S GOING OUT OF CONTROL!!!")
+            time.sleep(2)
+            print("\nThe duck gets dizzy and gets a headache. He should go home...")
+            time.sleep(5)
+            haveSwung = True
+            start()
+        if goSwing == "no":
+            print("\nThe duck stepped back and went on with his day.")
+            time.sleep(2.25)
+
+    if haveSwung:
+        print("\nThe duck learned his lesson the first time. Better not make it a second time..")
+        time.sleep(4)
+    move = input("\nWhere else would he like to go?\n\t> sandbox\n\t> lemonade stand\n\t> tree.\n")
+    if move.lower() == "sandbox":
+        sandbox()
+    elif move.lower() == "tree" or "tree.":
+        tree()
+    elif move.lower() == "lemonade stand":
+        lemonadeStand()
+    else:
+        print("What? The duck doesn't understand... let's go back to the playground then")
+        time.sleep(2)
+        playGround()
+
+            
+
+def sandbox():
+    global haveMoney
+    os.system('clear')
+    print("The duck walked to the sandbox to ease the mind for a little.")
+    time.sleep(3.2)
+    if not haveMoney:
+        print("\nHe digs around for a while, but ends up finding something green..")
+        time.sleep(3.2)
+        money = input("\nDo you want to pick it up?\n\t> yes\n\t> no\n")
+        if money == "yes":
+            print('''
+█▀▄▀█ █▀█ █▄░█ █▀▀ █▄█   ▄▀█ █▀▀ █▀█ █░█ █ █▀█ █▀▀ █▀▄   █ █
+█░▀░█ █▄█ █░▀█ ██▄ ░█░   █▀█ █▄▄ ▀▀█ █▄█ █ █▀▄ ██▄ █▄▀   ▄ ▄\n''')
+            haveMoney = True
+        elif money == "no":
+            print("\nThe duck leaves the unknown green object where he found it and went about his day...")
+        else:
+            money = input("\nHuh? Didn't quite catch that.. Can you please type it again?")
+    else:
+        print("\nYou probably chose this option to get more money didn't you.")
+        time.sleep(2.5)
+        print("\nThere's no more.")
+        time.sleep(2.5)
+        print("\nSKIDADDLE ٩(๑ `н´๑)۶ !!")
+    time.sleep(3)      
+    move = input("\nWhere else would he like to go?\n\t> swing\n\t> lemonade stand\n\t> tree.\n")
+    if move.lower() == "swing":
+        swing()
+    elif move.lower() == "tree" or "tree.":
+        tree()
+    elif move.lower() == "lemonade stand":
+        lemonadeStand()
+    else:
+        print("huh? maybe let's just go to the playground instead..")
+        time.sleep(2)
+        playGround()
+
+def tree():
+    os.system('clear')
+    global haveHammer
+    print("The duck approach the tree..")
+    print('''\n          &&& &&  & &&
+      && &\/&\|& ()|/ @, &&
+      &\/(/&/&||/& /_/)_&/_&
+   &() &\/&|()|/&\/ '%" & ()
+  &_\_&&_\ |& |&&/&__%_/_& &&
+&&   && & &| &| /& & % ()& /&&
+ ()&_---()&\&\|&&-&&--%---()~
+     &&     \|||
+             |||
+             |||
+             |||
+       , -=-~  .-^- _''')
+    time.sleep(2)
+    if haveHammer:
+        print("Nothing to see here anymore...\n")
+        time.sleep(2)
+    else:
+        print("Something lays in between the crevasses of the branches of the tree..")
+        time.sleep(3)
+        hammer = input("\nDo you want to pick it up?\n\t> yes\n\t> no\n")
+        if hammer == "yes":
+            print('''\n
+█░█ ▄▀█ █▀▄▀█ █▀▄▀█ █▀▀ █▀█   ▄▀█ █▀▀ █▀█ █░█ █ █▀█ █▀▀ █▀▄   █ █
+█▀█ █▀█ █░▀░█ █░▀░█ ██▄ █▀▄   █▀█ █▄▄ ▀▀█ █▄█ █ █▀▄ ██▄ █▄▀   ▄ ▄\n''')
+            haveHammer = True
+            time.sleep(2)
+        elif hammer == "no":
+            print("\nThe duck leaves the unknown object where he found it and went about his day...")
+            time.sleep(2)
+            slowType("\nwonder if that would've been useful..")
+            time.sleep(2)
+        else:
+            print("\nHuh? Didn't quite catch that.. maybe come back and type it again..")
+            time.sleep(3)      
+    move = input("\n\nWhere else would he like to go?\n\t> swing\n\t> lemonade stand\n\t> sandbox\n")
+    if move.lower() == "swing":
+        swing()
+    elif move.lower() == "sandbox":
+        sandbox()
+    elif move.lower() == "lemonade stand":
+        lemonadeStand()    
+    else:
+        print("huh? maybe let's just go to the playground instead..")
+        time.sleep(2)
+        playGround()
+
+
+
+def lemonadeStand():
+    global visitLemon
+    global haveDrank
+    global haveMoney
+    global haveHammer
+    visitLemon = visitLemon + 1
+    os.system('clear')
+    if visitLemon == 4:
+        print("The duck goes up to the lemonade stand..")
+    else:
+        print("The duck goes up to the lemonade stand to find that a man is running the stand..")
+
+    time.sleep(5)
+    
+    if visitLemon == 1:
+        slowType('\n\nDuck: Hey! ')
+        time.sleep(1.5)
+        slowType('Got any grapes?')
+        time.sleep(1.25)
+        slowType('\n\nThe man: No,')
+        time.sleep(0.85)
+        slowType(' we just sell lemonade, but it’s cold and it’s fresh and it’s all home made !')
+        time.sleep(0.85)
+        slowType(' Would you like to buy some?')
+        time.sleep(1.5)
+        slowType('\n\nPress ENTER to buy and drink ˙ᵕ˙')
+        input('')
+        if haveMoney:
+            print("\nThe duck drinks some of the lemonade...")
+            time.sleep(2)
+            slowType('\nHe tastes a hint of grape...')
+            time.sleep(3)
+            haveDrank = True
+            start()
+        if not haveMoney:
+            slowType("\n\nYou don't have any money ૮ ◞ ﻌ ◟ ა")
+            time.sleep(2)
+            slowType(" Maybe there might be money laying around in the park somewhere...")
+            time.sleep(3)
+            start()
+
+    if visitLemon == 2:
+        slowType('\n\nThe man: oh...')
+        time.sleep(0.85)
+        slowType(" It's you again...")
+        time.sleep(1.5)
+        slowType('\n\nDuck: Hey! ')
+        time.sleep(1.25)
+        slowType('Got any grapes?')
+        time.sleep(0.85)
+        slowType('\n\nThe man: No. ')
+        time.sleep(0.85)
+        slowType('We have already established this..')
+        time.sleep(0.85)
+        slowType('We 𝗼𝗻𝗹𝘆 have lemons.')
+        time.sleep(1)
+        if not haveDrank:
+            slowType(' Would you like to buy some?')
+            time.sleep(1.5)
+            slowType('\n\nPress ENTER to buy and drink ˙ᵕ˙')
+            input('')
+            if haveMoney:
+                print("The duck drinks some of the lemonade...")
+                time.sleep(2)
+                slowType('\nHe tastes a hint of grape...')
+                time.sleep(3)
+                haveDrank = True
+                start()
+            if not haveMoney:
+                slowType("\n\nYou don't have any money ૮ ◞ ﻌ ◟ ა")
+                time.sleep(1)
+                slowType(" Maybe there might be money laying around in the park somewhere...")
+                time.sleep(1)
+                start()
+        if haveDrank:
+            slowType("\n\nThe sun sets as the duck stares are the man intensly and leaves...")
+            time.sleep(1)
+            start()
+    
+    if visitLemon == 3:
+        slowType('\n\nThe man: oh. my. god...')
+        time.sleep(0.85)
+        slowType(' STOP COMING HERE.')
+        time.sleep(0.85)
+        slowType('\n\nThe Duck: Hey! ')
+        time.sleep(1.5)
+        slowType('Got any-')
+        sameLine('\n\nThe man: 𝗡𝗢.')
+        time.sleep(2.5)
+        slowType(" GO.")
+        time.sleep(0.5)
+        slowType(" AWAY.")
+        time.sleep(0.85)
+        slowType("WE DON'T HAVE ANY GRAPES.")
+        time.sleep(0.85)
+        slowType(' YOU ARE BANNED.')
+        time.sleep(1)
+        if haveDrank:
+            slowType('\n\nDuck: I know you have some grapes. ')
+            time.sleep(0.85)
+            slowType('I tasted some grapes in your lemonade when I tasted it. ')
+            time.sleep(1)
+            slowType('\n\nThe man: Prove')
+            time.sleep(0.75)
+            slowType(' it.')
+            time.sleep(1)
+            if haveHammer:
+                slowType('\n\nThe duck brings out a huge hammer and KNOCKED DOWN the stand into pieces.')
+                time.sleep(0.75)
+                slowType(' And on the ground lays the hidden grapes.')
+                time.sleep(0.75)
+                slowType('\n\nThe duck quickly snatched the grapes and ran back home;')
+                time.sleep(0.75)
+                slowType("\n\nDuck: YOU'LL NEVER CATCH ME.")
+                time.sleep(1)
+                win()
+            else:
+                slowType('\n\nThe both stood in silence, deathly glaring at each other for what felt like a solid 10 minutes.')
+                time.sleep(1.5)
+                slowType('\n\nThe duck decided to give up and come back home, hoping for proof tomorrow.')
+                time.sleep(1.5)
+                start()
+        else:
+            slowType('\n\nThe duck gives up and slowly walks home.')
+            time.sleep(1.5)
+            start()
+
+
+
+    
+    if visitLemon == 4:
+        slowType('\nNo one is here anymore.')
+        time.sleep(2)
+        slowType('\n...')
+        time.sleep(2)
+        gameOver()
+
+
+
+
+def gameOver():
+    global haveDrank
+    global haveHammer
+    global haveMoney
+    global haveSwung
+    global day
+    global visitLemon
+    os.system('clear')
+    print("The duck had ENOUGH of the park and is burnt out...")
+    time.sleep(0.85)
+    slowType("\n\nand he got no grapes :(")
+    time.sleep(0.85)
+    slowType("\n\nSHAME ON YOU")
+    print('''                                                    ████                                
+░░      ░░      ░░            ░░░░░░░░    ░░░░██  ████  ░░░░              ░░      ░░  ░░
+                      ░░                    ░░████████████        ░░                    
+                                              ██████████                                
+                            ░░          ██████████████                                  
+                                  ░░████              ██                                
+                                  ██                    ██                              
+                                ██████                  ██                              
+                              ██      ██                  ██                            
+                            ██        ██                  ██                            
+                            ██    ████░░                  ██                            
+                              ████  ██░░░░░░████████      ██                            
+                            ██░░░░██░░░░░░██        ██    ░░    ░░                      
+                          ██░░░░░░░░░░██░░░░██        ████    ░░                        
+                          ██░░░░░░░░░░░░░░░░░░████    ████                              
+                            ████░░░░░░░░░░░░░░░░████    ██                              
+                              ████████░░░░░░██████    ████░░                            
+                            ██        ██████          ██                                
+                        ██████                        ██                                
+                      ██░░░░██                    ██████                                
+                      ██░░░░░░██          ██████  ████████░░                            
+                        ██░░░░██        ██░░░░░░██████    ██                            
+                          ██████████    ██░░░░░░████  ████                              
+                                  ████████░░░░░░████████                                
+                                      ████░░░░░░██                                      
+                                          ██████                                        
+                                                                                        ''')
+    time.sleep(2)
+    print("waa..")
+    time.sleep(0.7)
+    print("waa..")
+    time.sleep(0.7)
+    print("waa..")
+    time.sleep(0.85)
+    print("waaaaaaaa......")
+    time.sleep(2)
+    slowType("\nLuckily, you're a time traveler.")
+    print("˛˛ƪ(⌾⃝ ౪ ⌾⃝ ๑)و ̉ ̉")
+    time.sleep(2)
+    input("\nPress ENTER to travel all the way to the beginning !")
+    haveDrank = False
+    haveSwung = False
+    haveHammer = False
+    haveMoney = False
+    day = 0
+    visitLemon = 0
+    start()
+
+def win():
+    global haveDrank
+    global haveSwung
+    global haveHammer
+    global haveMoney
+    global day
+    global visitLemon
+    os.system('clear')
+    slowType('WOO YOU WON ♡⸜(˶˃ ᵕ ˂˶)⸝♡ !!!')
+    time.sleep(1)
+    print('''\n                                ,.        ,.      ,.
+                                ||        ||      ||  ()
+ ,--. ,-. ,.,-.  ,--.,.,-. ,-.  ||-.,.  ,.|| ,-.  ||-.,. ,-. ,.,-.  ,--.
+//`-'//-\\||/|| //-||||/`'//-\\ ||-'||  ||||//-\\ ||-'||//-\\||/|| ((`-'
+||   || |||| ||||  ||||   || || ||  || /|||||| || ||  |||| |||| ||  ``.
+\\,-.\\-//|| || \\-||||   \\-|| ||  ||//||||\\-|| ||  ||\\-//|| || ,-.))
+ `--' `-' `' `'  `-,|`'    `-^-``'  `-' `'`' `-^-``'  `' `-' `' `' `--'
+                  //           .--------.
+              ,-.//          .: : :  :___`.
+              `--'         .'!!:::::  \\_\ `.
+                      : . /%O!!::::::::\\_\. \
+                     [""]/%%O!!:::::::::  : . \
+                     |  |%%OO!!::::::::::: : . |
+                     |  |%%OO!!:::::::::::::  :|
+                     |  |%%OO!!!::::::::::::: :|
+            :       .'--`.%%OO!!!:::::::::::: :|
+          : .:     /`.__.'\%%OO!!!::::::::::::/
+         :    .   /        \%OO!!!!::::::::::/
+        ,-'``'-. ;          ;%%OO!!!!!!:::::'
+        |`-..-'| |   ,--.   |`%%%OO!!!!!!:'
+        | .   :| |_.','`.`._|  `%%%OO!%%'
+        | . :  | |--'    `--|    `%%%%'
+        |`-..-'| ||   | | | |     /__\`-.
+        \::::::/ ||)|/|)|)|\|           /
+---------`::::'--|._ ~**~ _.|----------( -----------------------
+           )(    |  `-..-'  |           \    ______
+           )(    |          |,--.       ____/ /  /\\ ,-._.-'
+        ,-')('-. |          |\`;/   .-()___  :  |`.!,-'`'/`-._
+       (  '  `  )`-._    _.-'|;,|    `-,    \_\__\`,-'>-.,-._
+        `-....-'     ````    `--'      `-._       (`- `-._`-.''')
+    slowType('\nThe duck destroyed a small business and got his grapes ୧ʕ•̀ᴥ•́ʔ୨')
+    time.sleep(1)
+    slowType(' Great job <33')
+    time.sleep(2)
+    slowType('\n\nYou wanna try this whole circus again?')
+    tryAgain = input("\n\t> yes\n\t> no\n")
+    if tryAgain == "yes":
+        haveDrank = False
+        haveSwung = False
+        haveHammer = False
+        haveMoney = False
+        day = 0
+        visitLemon = 0
+        start()
+    elif tryAgain == "no":
+        print("\nbooooo you suck")
+    else:
+        print("\nI have no idea what you said but okay.")
+
+    
+
+########
+#main
+#######
+#TODO: Add some global variables
+haveDrank = False
+haveSwung = False
+haveHammer = False
+haveMoney = False
+day = 0
+visitLemon = 0
+start()
